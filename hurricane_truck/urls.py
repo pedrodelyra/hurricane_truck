@@ -18,6 +18,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
+    url(r'^$', 'users.views.index', name='index'),
     url(r'^users/', include('users.urls')),
+    url(r'^ht/', include('microposts.urls')),
     url(r'^admin/', admin.site.urls),
 ]
