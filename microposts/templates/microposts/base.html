@@ -19,7 +19,40 @@
   </head>
 
   <body>
-    {% block content %}{% endblock content %}
+		<div id="wrapper">
+			<!-- Sidebar -->
+		  <div id="sidebar-wrapper">
+		    <ul class="sidebar-nav">
+		      <li class="sidebar-brand">
+		        <a href="{% url 'index' %}">Hurricane Truck</a>
+		      </li>
+		      <li class="sidebar-text sidebar-username">
+		        Welcome, <a class="fluid-text" href="{% url 'user' current_user.id %}">{{ current_user.username }}</a>
+		      </li>
+		      <li>
+		        <a href="{% url 'microposts' %}">Microposts</a>
+		      </li>
+		      <li>
+		        <a href="#">Followers</a>
+		      </li>
+		      <li>
+		        <a href="#">Following</a>
+		      </li>
+		      <li>
+		        <a href="#">Account</a>
+		      </li>
+		      <li>
+		        <a href="{% url 'signout' %}">Logout</a>
+		      </li>
+		    </ul>
+		  </div>
+		  <!-- /#sidebar-wrapper -->
+		  <!-- Page Content -->
+  		<div id="page-content-wrapper">
+				{% block content %}{% endblock content %}
+  		</div>
+		  <!-- /#page-content-wrapper -->
+		</div>
 
     <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>

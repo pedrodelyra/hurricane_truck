@@ -1,0 +1,38 @@
+{% extends "microposts/base.html" %}
+
+{% block content %}
+{% load static %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4 logo-container"> 
+			<img class="fofao-img" src="{% static 'ico/apple-touch-icon-255-precomposed.png' %}" />
+      <img src="{% static 'ico/fofao-maior-que-lula.jpg' %}" />
+    </div>
+    <div class="col-lg-4">
+      <h1 class="title-center">Micropost</h1>
+      <ul class="micropost-list">
+          <li class="micropost">
+            <div class="owner">
+              {{ micropost.user }}
+            </div>
+
+            <a href="{% url 'show' micropost.id %}">
+            <div class="body">
+              <p class="pub-date">
+                {{ micropost.pub_date }}
+              </p>
+              <p class="content">
+                {{ micropost }}
+              </p>
+            </div>
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="col-lg-4 logo-container"> 
+      <img class="fofao-img" src="{% static 'ico/fofao-maior-que-lula.jpg' %}" />
+			<img class="fofao-logo" src="{% static 'ico/apple-touch-icon-255-precomposed.png' %}" />
+    </div>
+  </div>
+</div>
+{% endblock content %}

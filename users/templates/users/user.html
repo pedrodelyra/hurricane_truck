@@ -4,29 +4,28 @@
 {% load static %}
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-lg-8">
-			<h1>Microposts</h1>
-			<p>Compose a new micropost:</p>
-			<form role="form" action="{% url 'new_micropost' %}" method="post">
-				{% csrf_token %}
-				<div class="form-group">
-					<label class="sr-only" for="micropost">Username</label>
-					<textarea class="form-control" rows="4" id="content" name="content" placeholder="What are you thinking?"></textarea>
-				</div>
-				<div class="submit-btn">
-					<button type="submit" class="btn btn-success">POST</button>
-				</div>
-			</form>
-		</div>
 		<div class="col-lg-4 logo-container"> 
 			<img class="fofao-logo" src="{% static 'ico/apple-touch-icon-255-precomposed.png' %}" />
+		</div>
+		<div class="col-lg-8">
+      <p>{{ visited_user }}</p>
+      <p>{{ followers_num }} followers</p>
+      <p>{{ following_num }} following</p>
+      <p>{{ microposts_num }} microposts</p>
+      {% if current_user != visited_user %}
+        {% if visited_user in current_user.profile.following %}
+          <a href="{% url 'unfollow' visited_user.id %}">Unfollow</a>
+        {% else %}
+          <a href="{% url 'follow' visited_user.id %}">Follow</a>
+        {% endif %}
+      {% endif %}
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-lg-12">
-			<h2 class="micropost-feed-title">Feed</h2>
+			<h2 class="micropost-feed-title">{{ visited_user }}'s microposts</h2>
       <ul class="micropost-list">
-        {% for micropost in feed %}
+        {% for micropost in microposts %}
           <li class="micropost">
             <div class="owner">
               {{ micropost.user }}

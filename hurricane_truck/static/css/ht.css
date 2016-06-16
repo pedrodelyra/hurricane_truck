@@ -127,6 +127,58 @@
 	background: none;
 }
 
+ul.micropost-list {
+	padding-left: 15px;
+}
+
+li.micropost {
+	display: table;
+	margin-top: 3em;
+	width: 100%;
+}
+
+li.micropost a {
+	color: #333;
+	text-decoration: none;
+}
+
+li.micropost .owner {
+	border-right: 1px solid #999999;
+	padding-right: 1em;
+	vertical-align: middle;
+}
+
+li.micropost .body {
+	padding-left: 2em;
+}
+
+li.micropost .owner, li.micropost .body {
+	display: table-cell;
+	width: 15%;
+}
+
+li.micropost .body p.pub-date {
+	font-size: 12px;
+}
+
+.fofao-bottom {
+	margin-top: 20em;
+}
+
+.fofao-img {
+	margin-bottom: 5em;-
+}
+
+.title-center {
+	text-align: center;
+}
+
+.fluid-text {
+	border: none !important;
+	display: inline !important;
+	font-size: 18px !important;
+}
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;

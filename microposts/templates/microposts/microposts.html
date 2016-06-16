@@ -1,0 +1,35 @@
+{% extends "microposts/base.html" %}
+
+{% block content %}
+{% load static %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1>My microposts</h1>
+      <ul class="micropost-list">
+        {% for micropost in microposts %}
+          <li class="micropost">
+            <div class="owner">
+              {{ micropost.user }}
+            </div>
+
+            <a href="{% url 'show' micropost.id %}">
+            <div class="body">
+              <p class="pub-date">
+                {{ micropost.pub_date }}
+              </p>
+              <p class="content">
+                {{ micropost }}
+              </p>
+            </div>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-lg-4 logo-container"> 
+      <img class="fofao-bottom" src="{% static 'ico/fofao-maior-que-lula.jpg' %}" />
+    </div>
+  </div>
+</div>
+{% endblock content %}
