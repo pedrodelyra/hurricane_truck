@@ -1,10 +1,12 @@
+from django.conf import settings
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from forms import MicropostForm
 
 def index(request):
 	if request.user.is_authenticated():
-		return render(request, 'microposts/index.html', {'current_user' : request.user, 'feed' : request.user.profile.feed()})
+		ratings_plugin_installed = 'ratings' in settings.INSTALLED_APPS
+		return render(request, 'microposts/index.html', {'current_user' : request.user, 'feed' : request.user.profile.feed(), 'ratings_plugin_installed' : ratings_plugin_installed})
 	else:
 		return render(request, 'users/index.html') 
 
