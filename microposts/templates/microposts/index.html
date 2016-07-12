@@ -32,16 +32,21 @@
               {{ micropost.user }}
             </div>
 
-            <a href="{% url 'show' micropost.id %}">
             <div class="body">
-              <p class="pub-date">
-                {{ micropost.pub_date }}
-              </p>
+              <a href="{% url 'show' micropost.id %}">
+                <p class="pub-date">
+                  {{ micropost.pub_date }}
+                </p>
+              </a>
+	      {% if ratings_plugin_installed %}
+		<p class="micropost-rating">
+		  {{ micropost.avrg_rating }}
+		</p>
+	      {% endif %}
               <p class="content">
                 {{ micropost }}
               </p>
             </div>
-            </a>
           </li>
         {% endfor %}
       </ul>

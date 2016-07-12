@@ -10,3 +10,6 @@ class Micropost(models.Model):
 
 	def __str__(self):
 		return self.content
+
+	def avrg_rating(self):
+		return None

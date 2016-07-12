@@ -150,10 +150,25 @@ li.micropost .owner {
 
 li.micropost .body {
 	padding-left: 2em;
+	height: 7em;
+	width: 85%;
+}
+
+li.micropost .body a {
+	display: table-cell;
+	width: 10em;
+}
+
+li.micropost .body .micropost-rating {
+	display: table-cell;
+	padding-left: 20em;
 }
 
 li.micropost .owner, li.micropost .body {
 	display: table-cell;
+}
+
+li.micropost .owner {
 	width: 15%;
 }
 
